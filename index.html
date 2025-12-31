@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Memory Card Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>🧠 Memory Card Game</h1>
+
+    <select id="difficulty">
+        <option value="easy">Easy (4x4)</option>
+        <option value="medium">Medium (6x6)</option>
+        <option value="hard">Hard (8x8)</option>
+    </select>
+
+    <button id="restart">🔄 Restart</button>
+
+    <button id="soundToggle">🔊 Sound ON</button>
+
+    <div class="info">
+        <span>⏱ Time: <b id="time">0</b>s</span>
+        <span>🎯 Moves: <b id="moves">0</b></span>
+    </div>
+
+    <div class="best">
+        🏆 Best: 
+        <span id="bestTime">--</span>s / 
+        <span id="bestMoves">--</span> moves
+    </div>
+
+
+    <div class="game-container">
+        <!-- CARD -->
+    </div>
+
+    <div class="modal hidden" id="winModal">
+        <div class="modal-content">
+            <h2>🎉 You Win!</h2>
+            <p>⏱ Time: <span id="finalTime">0</span>s</p>
+            <p>🎯 Moves: <span id="finalMoves">0</span></p>
+            <button id="playAgain">Play Again</button>
+        </div>
+    </div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>

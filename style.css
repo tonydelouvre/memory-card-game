@@ -1,0 +1,183 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #0f172a;
+  color: #fff;
+  text-align: center;
+}
+
+h1 {
+  margin: 20px 0;
+}
+
+.game-container {
+  max-width: 520px;
+  margin: auto;
+  display: grid;
+  gap: 10px;
+}
+
+.card {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  cursor: pointer;
+}
+
+.card.flip {
+  transform: rotateY(180deg);
+}
+
+.card div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  backface-visibility: hidden;
+}
+
+.front {
+  background: #334155;
+}
+
+.back {
+  background: #22c55e;
+  transform: rotateY(180deg);
+}
+
+/* ✨ MATCH GLOW */
+.card.match {
+  animation: glow 0.6s ease;
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 0px #22c55e;
+  }
+  50% {
+    box-shadow: 0 0 20px #22c55e;
+  }
+  100% {
+    box-shadow: 0 0 0px #22c55e;
+  }
+}
+
+/* ❌ MISMATCH SHAKE */
+.card.shake {
+  animation: shake 0.4s;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0) rotateY(180deg); }
+  25% { transform: translateX(-6px) rotateY(180deg); }
+  50% { transform: translateX(6px) rotateY(180deg); }
+  75% { transform: translateX(-6px) rotateY(180deg); }
+  100% { transform: translateX(0) rotateY(180deg); }
+}
+
+
+/*==================
+CSS BUTTON GLOBAL
+==================*/
+button {
+  margin-bottom: 20px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  background: #22c55e;
+  color: #0f172a;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background: #16a34a;
+}
+
+select {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+
+#soundToggle {
+  margin-bottom: 10px;
+  background: #334155;
+  color: #fff;
+}
+
+/*==================
+INFO BAR STYLE
+==================*/
+.info {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.best {
+  margin-bottom: 20px;
+  font-size: 15px;
+  opacity: 0.85;
+}
+
+
+/*==================
+MODAL STYLE
+==================*/
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: #020617;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  width: 280px;
+  animation: pop 0.3s ease;
+}
+
+.modal-content h2 {
+  margin-bottom: 10px;
+}
+
+.modal-content button {
+  margin-top: 15px;
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
